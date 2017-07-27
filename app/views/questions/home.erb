@@ -1,0 +1,20 @@
+<h1>Stack Underflow</h1>
+
+<h2>All Questions</h2>
+
+<% @questions.each do |question| %>
+<div class="question" style=>
+
+<h3>Votes</h3><strong><%= question.votes.count %></strong>
+<h3>Answers</h3><strong><%= question.answers.count %></strong>
+
+
+<h3><a href="/questions/<%= question.id %>"><%= question.title %></a></h3>
+
+<p><%= question.body %></p>
+
+<h3><a href="/questions/<%= question.author.id %>"><%= question.author.username %></a></h3>
+
+</div>
+<%end%>
+

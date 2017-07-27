@@ -15,9 +15,24 @@
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
 
-  <title></title>
+
+  <title>StackUnderflow</title>
 </head>
-<body>
-  <%= yield %>
-</body>
+  <body> 
+  <h1>StackUnderflow</h1>
+
+  <!-- Need logged_id helper method -->
+  <% if logged_in? %>
+    <nav>
+      <form action="/sessions/logout" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" value="Logout">
+      </form>  |
+      <a href="/users/<%=user.id%>"></a>  |  <a href="/">Home</a> 
+    </nav>
+  <% else %>
+    <nav> <a href="/sessions/login">Login</a>  |  <a href="/users/new">Register</a> | <a href="/">Home</a></nav>
+  <% end %>
+    <%= yield %>
+  </body>
 </html>

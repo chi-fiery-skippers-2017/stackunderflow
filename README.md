@@ -11,9 +11,9 @@
 4. Registered user can add comment to question/answer or vote on either (one vote per user)
 
 ### Slices (include CSS and AJAX)
-* User registration
+<!-- * User registration
 * User login
-* User logout
+* User logout -->
 * Questions index
 * Questions show
 * Vote

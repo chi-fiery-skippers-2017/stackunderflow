@@ -1,3 +1,4 @@
+
 get '/session-viewer' do
   session.inspect
 end
@@ -15,4 +16,11 @@ post '/sessions' do
     @errors = ["There was trouble logging you in, please try again."]
     erb :'/sessions/new'
   end
+end
+
+
+# Logout users
+delete '/sessions/logout' do
+  session.delete(:user_id)
+  redirect '/'
 end

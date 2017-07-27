@@ -24,6 +24,7 @@
   <!-- Need logged_id helper method -->
   <% if logged_in? %>
     <nav>
+      <a href="/users/<%=@user.id%>"> <%= current_user.username %> </a> | 
       <form action="/sessions/logout" method="post">
         <input type="hidden" name="_method" value="delete">
         <input type="submit" value="Logout">

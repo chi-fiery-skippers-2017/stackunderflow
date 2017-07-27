@@ -4,7 +4,7 @@ get '/session-viewer' do
 end
 
 get '/sessions/new' do
-  erb :'session/new'
+  erb :'sessions/new'
 end
 
 post '/sessions' do

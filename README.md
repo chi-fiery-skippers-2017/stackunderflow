@@ -14,10 +14,12 @@
 <!-- * User registration
 * User login
 * User logout -->
-* Questions index
-* Questions show
-* Vote
-* Comment
-* Answer
+<!-- * Questions index -->
+* Question show
+* Add question - AJAX
+* Vote - AJAX
+* Comment - AJAX
+* answer - AJAX
+* Buttons: ask question, post your answer , add comment(to q & to a), upvote, downvote
 * Best answer
 * Full lockdown operation (authorization)

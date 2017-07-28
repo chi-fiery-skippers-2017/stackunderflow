@@ -1,0 +1,29 @@
+body {
+  font-family: 'Merriweather';
+  background-color: #f6f6f6;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.questions_container {
+  border-top: 1px solid black;
+}
+
+.question_all {
+  margin: 0 100px;
+
+}
+
+.question_votes_answers {
+  float: left;
+  width: 50px;
+}
+
+
+.question_author {
+    float: right;
+    width: 50px;
+    margin-right: 100px;
+    text-align: right;
+}
+

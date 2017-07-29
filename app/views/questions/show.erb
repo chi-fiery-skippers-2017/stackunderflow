@@ -1,12 +1,15 @@
 
 <h1><%= @question.title %></h1>
 
+
 <a href="/votes/up">up</a>
 <strong><%= @question.votes.count %></strong>
 <a href="/votes/down">down</a>
 
 <p><%= @question.body %></p>
+
 <div> <% @question.comments.each do |comment|%>
+
   <p> <%= comment.body %></p>
   <% end  %>
   <a href="/questions/<%= @question.author.id %>"><%= @question.author.username %></a>
@@ -16,6 +19,7 @@
 
 <section class="container">
   <% @question.answers.each do |answer| %>
+
   <div class="answer">
 
     <div class="votes">
@@ -24,10 +28,11 @@
       <a href="/votes/down">down</a>
     </div>
 
-    <p><%= answer.body %></p>
+    <p style="background-color:bisque;"><%= answer.body %></p>
 
     <div> <% answer.comments.each do |comment|%>
-      <p class="comment"> <%= comment.body %></p>
+    <div class="show_main_container">
+      <p style="bisque" class="comment"> <%= comment.body %></p>
       <% end  %>
     </div>
   </div>

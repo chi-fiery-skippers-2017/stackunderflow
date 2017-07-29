@@ -1,14 +1,21 @@
 
-
+<section class="main_container">
 <h2>All Questions</h2>
-<section class="questions_container">
+
   <% @questions.each do |question| %>
   <div class="questions_container" >
 
+
     <div class="question_votes_answers">
-      <strong><%= question.votes.count %> Votes</strong>
-      <strong><%= question.answers.count %> Answers</strong>
+      <div class="votes" style="vertical-align: baseline; float: left;">
+        <strong><%= question.votes.count %> Votes</strong>
+      </div>
+      <div class="answers" style="vertical-align: baseline; float: left;">
+        <strong><%= question.answers.count %> Answers</strong>
+      </div>
     </div>
+
+
     <p class="question_author"><a href="/questions/<%= question.author.id %>"><%= question.author.username %></a></p>
 
     <div class="question_all">

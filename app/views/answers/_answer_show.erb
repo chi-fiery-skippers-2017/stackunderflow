@@ -1,15 +1,15 @@
 <div class="answer">
   <div class="votes">
-    <a href="/votes/up">up</a>
-    <strong><%= answer.votes.count %></strong>
-    <a href="/votes/down">down</a>
-  </div>
+      <a class="voteup" href="/votes/up?votable_id=<%=answer.id%>&votable_type=Answer">up</a>
+      <strong><%= answer.votes.map(&:vote).reduce(:+) %></strong>
+      <a class="votedown" href="/votes/down?votable_id=<%=answer.id%>&votable_type=Answer">down</a>
+    </div>
 
-  <p><%= answer.body %></p>
+  <p style="background-color:bisque;"><%= answer.body %></p>
   <p><%= answer.author.username %></p>
 
-  <div> <% answer.comments.each do |comment|%>
-    <p class="comment"> <%= comment.body %></p>
+  <div class="show_main_container"> <% answer.comments.each do |comment|%>
+    <p class="comment" style="bisque"> <%= comment.body %></p>
     <% end  %>
   </div>
 </div>

@@ -18,12 +18,12 @@ $(document).ready(function() {
       $this.children().first().val("").focus();
     })
   })
-})
+
 
   $('.voteup').on('click',function(event){
     event.preventDefault();
     var $link = $(this).attr('href');
-    var $score = $(this).closest('.vote-container').find("strong");
+    var $score = $(this).closest('.votes').find("strong");
     $.ajax({
       url: $link,
     }).done(function(response){
@@ -34,7 +34,7 @@ $(document).ready(function() {
   $('.votedown').on('click',function(event){
     event.preventDefault();
     var $link = $(this).attr('href');
-    var $score = $(this).closest('.vote-container').find("strong");
+    var $score = $(this).closest('.votes').find("strong");
     $.ajax({
       url: $link,
     }).done(function(response){

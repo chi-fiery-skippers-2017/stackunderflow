@@ -21,20 +21,25 @@
 </head>
 
   <body>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
   <h1>StackUnderflow</h1>
   <%= erb :'_errors', layout: false %>
   <a href="/questions/new" class="ask-question">Ask Question</a>
-    
+
   <!-- Need logged_id helper method -->
   <% if logged_in? %>
   <nav style="padding-top: -1;">
     <ul>
-      <li><a class="active" href="#home">StackUnderflow</a></li>
-      <li><a href="/users/<%=current_user.id%>"> <%= current_user.username %> </a></li> 
+      <li><a class="active" href="/home">StackUnderflow</a></li>
+      <li><a href="/users/<%=current_user.id%>"> <%= current_user.username %> </a></li>
       <form action="/sessions/logout" method="post">
         <input type="hidden" name="_method" value="delete">
         <input type="submit" value="Logout">
-      </form>  
+      </form>
       <li><a href="/users/<%=current_user%>"></a><a href="/">Home</a></li>
     </ul>
       <div class="slogan">

@@ -1,14 +1,18 @@
 <h1><%= @question.title %></h1>
+
 <div class="vote-container">
   <a class="voteup" href="/votes/up?votable_id=<%=@question.id%>&votable_type=Question">up</a>
   <strong><%= @question.votes.map(&:vote).reduce(:+)%></strong>
   <a class="votedown" href="/votes/down?votable_id=<%=@question.id%>&votable_type=Question">down</a>
 </div>
 
+
 <p><%= @question.body %></p>
 
 <div> <% @question.comments.each do |comment|%>
+
     <p> <%= comment.body %></p>
+
   <% end  %>
   <a href="/questions/<%= @question.author.id %>"><%= @question.author.username %></a>
 </div>
@@ -17,14 +21,6 @@
 
 <section class="container">
   <% @question.answers.each do |answer| %>
-
-
-    <div class="vote-container">
-      <a class="voteup" href="/votes/up?votable_id=<%=answer.id%>&votable_type=Answer">up</a>
-      <strong><%= answer.votes.map(&:vote).reduce(:+) %></strong>
-      <a class="votedown" href="/votes/down?votable_id=<%=answer.id%>&votable_type=Answer">down</a>
-    </div>
-
 
     <%=erb :'answers/_answer_show', locals: { answer: answer}, layout: false%>
     
@@ -35,4 +31,3 @@
   <input name="answer" type="text" placeholder="Enter answer here..."></input><br>
   <input type="submit" value="Submit">
 </form>
-

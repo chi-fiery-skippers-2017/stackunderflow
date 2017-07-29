@@ -17,17 +17,8 @@
 
 <section class="container">
   <% @question.answers.each do |answer| %>
-
-
-    <div class="vote-container">
-      <a class="voteup" href="/votes/up?votable_id=<%=answer.id%>&votable_type=Answer">up</a>
-      <strong><%= answer.votes.map(&:vote).reduce(:+) %></strong>
-      <a class="votedown" href="/votes/down?votable_id=<%=answer.id%>&votable_type=Answer">down</a>
-    </div>
-
-
     <%=erb :'answers/_answer_show', locals: { answer: answer}, layout: false%>
-    
+
   <%end%>
 </section>
 

@@ -29,11 +29,11 @@
       <form action="/sessions/logout" method="post">
         <input type="hidden" name="_method" value="delete">
         <input type="submit" value="Logout">
-      </form>  |
+      </form>
       <a href="/users/<%=current_user%>"></a>  |  <a href="/">Home</a>
     </nav>
   <% else %>
-    <nav> <a href="/sessions/login">Login</a>  |  <a href="/users/new">Register</a> | <a href="/">Home</a></nav>
+    <nav> <a href="/sessions/new">Login</a> <a href="/users/new">Register</a> | <a href="/">Home</a></nav>
   <% end %>
     <%= yield %>
   </body>

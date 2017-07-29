@@ -6,7 +6,7 @@
   <div class="questions_container" >
 
     <div class="question_votes_answers">
-      <strong><%= question.votes.count %> Votes</strong>
+      <strong><%= question.votes.map(&:vote).reduce(:+) %> Votes</strong>
       <strong><%= question.answers.count %> Answers</strong>
     </div>
     <p class="question_author"><a href="/questions/<%= question.author.id %>"><%= question.author.username %></a></p>

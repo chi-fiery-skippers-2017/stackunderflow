@@ -42,28 +42,6 @@ $(document).ready(function() {
     });
   });
 
-  //adding new comment
-  // $('.add_comment_button').on('click',function(){
-  //   event.preventDefault();
-  //   $(this).css('display', 'none');
-  //   $(this).parent().find('.add_comment_form').css('display', 'inline');
-  //   var $link = $(this).parent().find('.add_comment_form').attr('action');
-  //   var $info = $(this).parent().serialize();
-  //   console.log($info);
-  //   $.ajax({
-  //     url: $link,
-  //     method: "POST",
-  //     data: $info
-  //   }).done(function(response){
-  //     //insert new comment
-  //     // console.log($(this).closest('add_comments'));
-  //     console.log(response);
-  //     $('.post_comment_button').on('click', function(){
-  //       event.preventDefault();
-  //     })
-  //   })
-  // })
-
   $(".add_comment_button").on("click", function(event){
     event.preventDefault();
     $(this).css('display', 'none');
@@ -84,14 +62,13 @@ $(document).ready(function() {
     })
 
     .done(function(response) {
-      $(".show_main_container").append(response);
+      $this.parent().find(".comment_container").append(response);
       console.log("success");
       $this.css('display', 'none');
       $this.parent().find('.add_comment_button').css('display', 'inline');
       $this.children().first().val("")
     })
   })
-
 
 
 });

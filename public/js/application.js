@@ -1,9 +1,24 @@
 $(document).ready(function() {
-  // This is called after the document has loaded in its entirety
-  // This guarantees that any elements we bind to will exist on the page
-  // when we try to bind to them
+  $("#postanswer").on("submit", function(event){
+    event.preventDefault();
+    var $this = $(this);
+    var answerSubmission = $(this).serialize();
+    var url = $this.closest('form').attr('action');
+    var type = $this.closest('form').attr('method');
 
-  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+    $.ajax({
+      data: answerSubmission,
+      url: url,
+      type: type
+    })
+
+    .done(function(response) {
+      $(".container").append(response);
+      console.log("success");
+      $this.children().first().val("").focus();
+    })
+  })
+})
 
   $('.voteup').on('click',function(event){
     event.preventDefault();
@@ -28,4 +43,5 @@ $(document).ready(function() {
   });
 
 });
+
 

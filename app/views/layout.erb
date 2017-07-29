@@ -19,9 +19,12 @@
 
   <title>StackUnderflow</title>
 </head>
-<body>
-  <!--   <h1>StackUnderflow</h1> -->
 
+  <body>
+  <h1>StackUnderflow</h1>
+  <%= erb :'_errors', layout: false %>
+  <a href="/questions/new" class="ask-question">Ask Question</a>
+    
   <!-- Need logged_id helper method -->
   <% if logged_in? %>
   <nav style="padding-top: -1;">

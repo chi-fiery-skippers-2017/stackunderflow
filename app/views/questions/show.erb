@@ -1,16 +1,18 @@
-
 <h1><%= @question.title %></h1>
 
+<div class="vote-container">
+  <a class="voteup" href="/votes/up?votable_id=<%=@question.id%>&votable_type=Question">up</a>
+  <strong><%= @question.votes.map(&:vote).reduce(:+)%></strong>
+  <a class="votedown" href="/votes/down?votable_id=<%=@question.id%>&votable_type=Question">down</a>
+</div>
 
-<a href="/votes/up">up</a>
-<strong><%= @question.votes.count %></strong>
-<a href="/votes/down">down</a>
 
 <p><%= @question.body %></p>
 
 <div> <% @question.comments.each do |comment|%>
 
-  <p> <%= comment.body %></p>
+    <p> <%= comment.body %></p>
+
   <% end  %>
   <a href="/questions/<%= @question.author.id %>"><%= @question.author.username %></a>
 </div>
@@ -20,30 +22,12 @@
 <section class="container">
   <% @question.answers.each do |answer| %>
 
-  <div class="answer">
-
-    <div class="votes">
-      <a href="/votes/up">up</a>
-      <strong><%= answer.votes.count %></strong>
-      <a href="/votes/down">down</a>
-    </div>
-
-    <p style="background-color:bisque;"><%= answer.body %></p>
-
-    <div> <% answer.comments.each do |comment|%>
-    <div class="show_main_container">
-      <p style="bisque" class="comment"> <%= comment.body %></p>
-      <% end  %>
-    </div>
-  </div>
-
+    <%=erb :'answers/_answer_show', locals: { answer: answer}, layout: false%>
+    
   <%end%>
 </section>
 
-<textarea rows="4" cols="50" name="comment" form="usrform" placeholder="Enter answer here...">
-</textarea>
-<form action="/answers/new" method="post" id="postanswer">
-  <input type="submit">
+<form action="/questions/<%=@question.id%>/answers/new" method="post" id="postanswer">
+  <input name="answer" type="text" placeholder="Enter answer here..."></input><br>
+  <input type="submit" value="Submit">
 </form>
-<br>
-

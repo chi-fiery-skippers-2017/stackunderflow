@@ -8,7 +8,7 @@
 
     <div class="question_votes_answers">
       <div class="votes" style="vertical-align: baseline; float: left;">
-        <strong><%= question.votes.count %> Votes</strong>
+        <strong><%= question.votes.map(&:vote).reduce(:+)  %> Votes</strong>
       </div>
       <div class="answers" style="vertical-align: baseline; float: left;">
         <strong><%= question.answers.count %> Answers</strong>

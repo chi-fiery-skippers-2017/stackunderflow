@@ -1,4 +1,3 @@
-
 get '/session-viewer' do
   session.inspect
 end
@@ -18,8 +17,6 @@ post '/sessions' do
   end
 end
 
-
-# Logout users
 delete '/sessions/logout' do
   session.delete(:user_id)
   redirect '/'

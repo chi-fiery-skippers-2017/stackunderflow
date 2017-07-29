@@ -24,7 +24,6 @@ body {
 
 .question_all {
   margin: 0 100px;
-
 }
 
 .question_votes_answers {
@@ -32,7 +31,6 @@ body {
   width: 50px;
   text-decoration: none;
 }
-
 
 .question_author {
   float: right;
@@ -110,6 +108,4 @@ li a:hover {
   color:white;
   background-color: #126CFA;
   padding: 10px;
-
-
 }

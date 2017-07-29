@@ -12,7 +12,7 @@ get '/questions/:id' do
   erb :'questions/show'
 end
 
-post '/questions' do 
+post '/questions' do
   if logged_in?
     @question = Question.create(params[:question])
     @question.author = current_user
@@ -25,5 +25,20 @@ post '/questions' do
   else
     @errors = ["You must be logged in to ask the community a question."]
     erb :'questions/new'
+  end
+end
+
+post '/question/:id/comment' do
+  @question = Question.find_by(id: params[:id])
+  @comment = Comment.new(body: params[:comment], commentable_type: "Question", commentable_id: params[:id], author_id: current_user.id)
+  if @comment.save
+    if request.xhr?
+      erb :'answers/_answer_comments', locals: { comment: @comment }, layout: false
+    else
+      redirect back
+    end
+  else
+    @errors = @question.errors.full_messages
+    erb :'questions/show'
   end
 end

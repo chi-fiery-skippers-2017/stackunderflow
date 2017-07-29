@@ -1,6 +1,6 @@
 <h1><%= @question.title %></h1>
 
-<div class="vote-container">
+<div class="votes">
   <a class="voteup" href="/votes/up?votable_id=<%=@question.id%>&votable_type=Question">up</a>
   <strong><%= @question.votes.map(&:vote).reduce(:+)%></strong>
   <a class="votedown" href="/votes/down?votable_id=<%=@question.id%>&votable_type=Question">down</a>
@@ -9,13 +9,24 @@
 
 <p><%= @question.body %></p>
 
-<div> <% @question.comments.each do |comment|%>
 
-    <p> <%= comment.body %></p>
-
-  <% end  %>
+<div>
   <a href="/questions/<%= @question.author.id %>"><%= @question.author.username %></a>
 </div>
+
+  <div class="add_comments">
+    <div class="comment_container"> <% @question.comments.each do |comment|%>
+
+      <%= erb :'answers/_answer_comments', locals: { comment: comment }, layout: false %>
+      <%end%>
+    </div>
+    <p class="add_comment_button"> <a href="/"> add comment </a></p>
+    <form class="add_comment_form" action="/question/<%=@question.id%>/comment" method="post" style="display: none;" >
+      <input type="text" name="comment" style="width: 600px;" placeholder="enter your comment here...">
+      <br>
+      <input class='post_comment_button' type="submit" value="post">
+    </form>
+  </div>
 
 <h3><%= @question.answers.count %> Answers</h3>
 
@@ -27,7 +38,7 @@
   <%end%>
 </section>
 
-<form action="/questions/<%=@question.id%>/answers/new" method="post" id="postanswer">
-  <input name="answer" type="text" placeholder="Enter answer here..."></input><br>
+<form action="/questions/<%=@question.id%>/answers/new" method="post" id="postanswer" >
+  <input name="answer" type="text" placeholder="Enter answer here..." style="width: 600px;"></input><br>
   <input type="submit" value="Submit">
 </form>

@@ -11,14 +11,12 @@ body {
 
 .question_all {
   margin: 0 100px;
-
 }
 
 .question_votes_answers {
   float: left;
   width: 50px;
 }
-
 
 .question_author {
     float: right;
@@ -27,3 +25,17 @@ body {
     text-align: right;
 }
 
+.user-questions-profile {
+  border: .5px solid blue;
+}
+
+.question-comments {
+  border: 1px solid black;
+  font-size: .75em;
+  font-style: italic;
+}
+
+.profile-answers-page {
+  border: 1px solid black;
+  font-size: 1em;
+}

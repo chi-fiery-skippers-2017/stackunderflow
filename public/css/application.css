@@ -5,6 +5,20 @@ body {
   margin: 0 auto;
 }
 
+.main_container {
+  padding:20px;
+  margin-top:30px;
+  /*background-color:#ede4ce;*/
+  height:1500px;
+}
+
+.show_main_container {
+  padding:20px;
+  margin-top:30px;
+  background-color:#ede4ce;
+  height:1500px;
+}
+
 .questions_container {
   border-top: 1px solid black;
 }
@@ -16,26 +30,83 @@ body {
 .question_votes_answers {
   float: left;
   width: 50px;
+  text-decoration: none;
 }
 
 .question_author {
-    float: right;
-    width: 50px;
-    margin-right: 100px;
-    text-align: right;
+  float: right;
+  width: 50px;
+  margin-right: 100px;
+  text-align: right;
+  text-decoration: none;
+}
+a {
+  text-decoration: none;
+  /*color:white;*/
 }
 
-.user-questions-profile {
-  border: .5px solid blue;
+/*Navbar*/
+
+ul {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  list-style-type: none;
+  margin: 20;
+  margin-top: auto;
+  padding: ;
+  overflow: hidden;
+  /*color: black;*/
+  background-color: #ede4ce;
+  text-decoration: none;
 }
 
-.question-comments {
-  border: 1px solid black;
-  font-size: .75em;
-  font-style: italic;
+li {
+  color:black;
+  float: left;
+  text-decoration: none;
 }
 
-.profile-answers-page {
-  border: 1px solid black;
-  font-size: 1em;
+li a {
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+
+  background-color: #a8b2ed;
+}
+
+
+/*Front Login Page*/
+.front-form {
+  float: right;
+}
+
+.frontpage-login-form {
+  width: 100%;
+  margin-top: 200;
+    background: linear-gradient(blue, light_blue);
+}
+
+.register_bg {
+
+  background: -webkit-linear-gradient(#00138f, #aab3f0);
+  padding-bottom: 150px;
+}
+
+/*user registration form*/
+.user-registration {
+  color:white;
+  padding-top: 48px;
+    /*background: linear-gradient(blue, red);*/
+}
+
+.slogan {
+  color:white;
+  background-color: #126CFA;
+  padding: 10px;
 }

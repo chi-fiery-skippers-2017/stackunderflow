@@ -1,8 +1,9 @@
 <h1><%= @question.title %></h1>
-
-  <a href="/votes/up">up</a>
-    <strong><%= @question.votes.count %></strong>
-  <a href="/votes/down">down</a>
+<div class="vote-container">
+  <a class="voteup" href="/votes/up?votable_id=<%=@question.id%>&votable_type=Question">up</a>
+  <strong><%= @question.votes.map(&:vote).reduce(:+)%></strong>
+  <a class="votedown" href="/votes/down?votable_id=<%=@question.id%>&votable_type=Question">down</a>
+</div>
 
 <p><%= @question.body %></p>
 
@@ -16,7 +17,17 @@
 
 <section class="container">
   <% @question.answers.each do |answer| %>
+
+
+    <div class="vote-container">
+      <a class="voteup" href="/votes/up?votable_id=<%=answer.id%>&votable_type=Answer">up</a>
+      <strong><%= answer.votes.map(&:vote).reduce(:+) %></strong>
+      <a class="votedown" href="/votes/down?votable_id=<%=answer.id%>&votable_type=Answer">down</a>
+    </div>
+
+
     <%=erb :'answers/_answer_show', locals: { answer: answer}, layout: false%>
+    
   <%end%>
 </section>
 

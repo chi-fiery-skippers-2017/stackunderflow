@@ -20,3 +20,28 @@ $(document).ready(function() {
   })
 })
 
+  $('.voteup').on('click',function(event){
+    event.preventDefault();
+    var $link = $(this).attr('href');
+    var $score = $(this).closest('.vote-container').find("strong");
+    $.ajax({
+      url: $link,
+    }).done(function(response){
+      $score.text(response);
+    });
+  });
+
+  $('.votedown').on('click',function(event){
+    event.preventDefault();
+    var $link = $(this).attr('href');
+    var $score = $(this).closest('.vote-container').find("strong");
+    $.ajax({
+      url: $link,
+    }).done(function(response){
+      $score.text(response);
+    });
+  });
+
+});
+
+

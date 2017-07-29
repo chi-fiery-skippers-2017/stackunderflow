@@ -13,7 +13,7 @@ end
 
 20.times do
     Comment.create(body: Faker::Hipster.paragraph,
-                  commentable_type: 'question',
+                  commentable_type: 'Question',
                   commentable_id: rand(1..20),
                   author_id: rand(1..10))
 end
@@ -27,19 +27,21 @@ end
 
 20.times do
     Comment.create(body: Faker::Hipster.paragraph,
-                  commentable_type: 'answer',
+                  commentable_type: 'Answer',
                   commentable_id: rand(1..30),
                   author_id: rand(1..10))
 end
 
 100.times do
     Vote.create(voter_id: rand(1..10),
-                votable_type: 'question',
-                votable_id: rand(1..20))
+                votable_type: 'Question',
+                votable_id: rand(1..20),
+                vote: 1)
   end
 
 100.times do
     Vote.create(voter_id: rand(1..10),
-                votable_type: 'answer',
-                votable_id: rand(1..30))
+                votable_type: 'Answer',
+                votable_id: rand(1..30),
+                vote: 1)
 end

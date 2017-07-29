@@ -1,6 +1,6 @@
 <h1><%= @question.title %></h1>
 
-<div class="vote-container">
+<div class="votes">
   <a class="voteup" href="/votes/up?votable_id=<%=@question.id%>&votable_type=Question">up</a>
   <strong><%= @question.votes.map(&:vote).reduce(:+)%></strong>
   <a class="votedown" href="/votes/down?votable_id=<%=@question.id%>&votable_type=Question">down</a>
@@ -27,7 +27,7 @@
   <%end%>
 </section>
 
-<form action="/questions/<%=@question.id%>/answers/new" method="post" id="postanswer">
-  <input name="answer" type="text" placeholder="Enter answer here..."></input><br>
+<form action="/questions/<%=@question.id%>/answers/new" method="post" id="postanswer" >
+  <input name="answer" type="text" placeholder="Enter answer here..." style="width: 600px;"></input><br>
   <input type="submit" value="Submit">
 </form>

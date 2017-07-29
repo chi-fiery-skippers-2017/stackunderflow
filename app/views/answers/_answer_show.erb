@@ -8,8 +8,22 @@
   <p style="background-color:bisque;"><%= answer.body %></p>
   <p><%= answer.author.username %></p>
 
+
+
+  <div class="add_comments">
+    <p class="add_comment_button"> <a href="/"> add comment </a></p>
+    <form class="add_comment_form" action="/answer/<%=answer.id%>/comment" method="post" style="display: none;" >
+      <input type="text" name="comment" style="width: 600px;" placeholder="enter your comment here...">
+      <br>
+      <input class='post_comment_button' type="submit" value="post">
+    </form>
+  </div>
+
+
+
   <div class="show_main_container"> <% answer.comments.each do |comment|%>
-    <p class="comment" style="bisque"> <%= comment.body %></p>
+    <%= erb :'answers/_answer_comments', locals: { comment: comment }, layout: false %>
     <% end  %>
   </div>
+
 </div>

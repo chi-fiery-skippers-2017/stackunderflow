@@ -5,11 +5,14 @@ body {
   margin: 0 auto;
 }
 
+title {
+  
+}
 .main_container {
   padding:20px;
   margin-top:30px;
   /*background-color:#ede4ce;*/
-  height:1500px;
+  height:auto;
 }
 
 .show_main_container {
@@ -48,9 +51,9 @@ a {
 /*Navbar*/
 
 ul {
-  position: fixed;
+  position: static;
   top: 0;
-  width: 100%;
+  max-width: 960px;
   list-style-type: none;
   margin: 20;
   margin-top: auto;
@@ -80,6 +83,19 @@ li a:hover {
   background-color: #a8b2ed;
 }
 
+.flex-container {
+    display: -webkit-flex;
+    display: flex;  
+    -webkit-flex-flow: row wrap;
+    flex-flow: row wrap;
+    text-align: center;
+}
+
+.flex-container > * {
+    padding: 15px;
+    -webkit-flex: 1 100%;
+    flex: 1 100%;
+}
 
 /*Front Login Page*/
 .front-form {
@@ -87,7 +103,7 @@ li a:hover {
 }
 
 .frontpage-login-form {
-  width: 100%;
+  max-width: 960px;
   margin-top: 200;
     background: linear-gradient(blue, light_blue);
 }
@@ -100,7 +116,8 @@ li a:hover {
 
 /*user registration form*/
 .user-registration {
-  color:white;
+  color:black;
+
   padding-top: 48px;
     /*background: linear-gradient(blue, red);*/
 }
@@ -110,3 +127,9 @@ li a:hover {
   background-color: #126CFA;
   padding: 10px;
 }
+
+/*@media all and (min-width: 768px) {
+    .nav {text-align:left;-webkit-flex: 1 auto;flex:1 auto;-webkit-order:1;order:1;}
+    .article {-webkit-flex:5 0px;flex:5 0px;-webkit-order:2;order:2;}
+    footer {-webkit-order:3;order:3;}
+}*/

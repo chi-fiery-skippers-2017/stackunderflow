@@ -19,32 +19,36 @@
 
   <title>StackUnderflow</title>
 </head>
-  <body>
+<body>
+<!--   <br>
   <br>
   <br>
   <br>
-  <br>
-  <br>
+  <br> -->
   <h1>StackUnderflow</h1>
   <%= erb :'_errors', layout: false %>
   <a href="/questions/new" class="ask-question">Ask Question</a>
 
   <!-- Need logged_id helper method -->
   <% if logged_in? %>
-  <nav style="padding-top: -1;">
+  <nav  style="padding-top: -1;max-width: 960px;">
     <ul>
       <li><a class="active" href="/home">StackUnderflow</a></li>
       <li><a href="/users/<%=current_user.id%>"> <%= current_user.username %> </a></li>
-      <form action="/sessions/logout" method="post">
+        <form action="/sessions/logout" method="post">
         <input type="hidden" name="_method" value="delete">
-        <input type="submit" value="Logout">
+        <input class="logout-button" type="submit" value="Logout">
       </form>
-      <li><a href="/users/<%=current_user%>"></a><a href="/">Home</a></li>
     </ul>
-      <div class="slogan">
+
+        </nav>
+    <div class="slogan">
       <p>Stack Underflow Business Solutions: Get Under!</p>
     </div>
-  <% else %>
+
+    <% else %>
+      <nav style="padding-top: -1;">
+
     <ul>
       <li><a class="active" href="/home">StackUnderflow</a></li>
       <li><a href="/sessions/new">Login</a></li>
@@ -58,13 +62,13 @@
 
 
   <div class="register_bg">
-      <h2 class="user-registration">Please register below and to check out the underflow...</h2>
+    <h2 class="user-registration">Please register below and to check out the underflow...</h2>
     <div class="frontpage-login-form">
       <div class="front-form">
         <form action="/users" method="POST">
           <label for="username">Username:</label>
           <input id="username" name="user[username]" type="text"><br>
-          <label for="user-email">Email Address:</label>
+          <label for="user-email">Email:</label>
           <input id="user-email" name="user[email]" type="email"><br>
           <label for="user-password">Password:</label>
           <input id="user-password" name="user[password]" type="password"><br>
@@ -73,10 +77,21 @@
       </div>
     </div>
   </div>
-      <div class="slogan">
-      <p>Stack Underflow Business Solutions: Get Under!</p>
-    </div>
-      <% end %>
+  <div class="slogan">
+    <p>Stack Underflow Business Solutions: Get Under!</p>
+  </div>
+
+  <% end %>
   <%= yield %>
+    <div style="text-align: ">
+
+
+  <footer>
+
+
+    <p style="text-align: center;" class="copyright">&copy; <%= Time.now.strftime("%-d %B %Y, %l:%M%P") %> StackUnderflow  </p>
+  </footer>
+<!--   </div> -->
 </body>
+
 </html>

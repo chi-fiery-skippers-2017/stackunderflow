@@ -19,7 +19,7 @@
 
   <title>StackUnderflow</title>
 </head>
-  <body>
+<body>
   <br>
   <br>
   <br>
@@ -41,10 +41,10 @@
       </form>
       <li><a href="/users/<%=current_user%>"></a><a href="/">Home</a></li>
     </ul>
-      <div class="slogan">
+    <div class="slogan">
       <p>Stack Underflow Business Solutions: Get Under!</p>
     </div>
-  <% else %>
+    <% else %>
     <ul>
       <li><a class="active" href="/home">StackUnderflow</a></li>
       <li><a href="/sessions/new">Login</a></li>
@@ -58,7 +58,7 @@
 
 
   <div class="register_bg">
-      <h2 class="user-registration">Please register below and to check out the underflow...</h2>
+    <h2 class="user-registration">Please register below and to check out the underflow...</h2>
     <div class="frontpage-login-form">
       <div class="front-form">
         <form action="/users" method="POST">
@@ -73,10 +73,18 @@
       </div>
     </div>
   </div>
-      <div class="slogan">
-      <p>Stack Underflow Business Solutions: Get Under!</p>
-    </div>
-      <% end %>
+  <div class="slogan">
+    <p>Stack Underflow Business Solutions: Get Under!</p>
+  </div>
+  <% end %>
   <%= yield %>
+    <div style="text-align: ">
+  <footer>
+
+
+    <p style="text-align: center;" class="copyright">&copy; <%= Time.now.strftime("%-d %B %Y, %l:%M%P") %> StackUnderflow  </p>
+  </footer>
+  </div>
 </body>
+
 </html>

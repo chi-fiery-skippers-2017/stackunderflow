@@ -31,16 +31,16 @@
 
   <!-- Need logged_id helper method -->
   <% if logged_in? %>
-  <nav class="flex-container" style="padding-top: -1;max-width: 960px;border: solid black;">
+  <nav  style="padding-top: -1;max-width: 960px;">
     <ul>
       <li><a class="active" href="/home">StackUnderflow</a></li>
       <li><a href="/users/<%=current_user.id%>"> <%= current_user.username %> </a></li>
-      <form action="/sessions/logout" method="post">
+        <form action="/sessions/logout" method="post">
         <input type="hidden" name="_method" value="delete">
-        <input type="submit" value="Logout">
+        <input class="logout-button" type="submit" value="Logout">
       </form>
-      <li><a href="/users/<%=current_user%>"></a><a href="/">Home</a></li>
     </ul>
+
         </nav>
     <div class="slogan">
       <p>Stack Underflow Business Solutions: Get Under!</p>
